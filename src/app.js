@@ -5,6 +5,7 @@ const path = require('path')
 const hbs = require('hbs')
 
 const app = express()
+const port = process.env.PORT || 3000
 
 //define paths for express config
 const publicDirectoryPath = path.join(__dirname, '../public')
@@ -110,7 +111,7 @@ app.get('*splat', (req, res) => {
     })
 })
 
-//start server
-app.listen(3000, () => {
-    console.log('server is up at port 3000')
+//start server - port is provided to application via env variable, key value pair
+app.listen(port, () => {
+    console.log('server is up at port ' + port)
 })
